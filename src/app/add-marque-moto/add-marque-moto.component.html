@@ -1,0 +1,15 @@
+<h1>Ajouter une marque de moto : </h1>
+<form #MarqueMotoForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name"  name="name" required [(ngModel)]="marqueMoto.name"
+           #name="ngModel">
+    <div [hidden]="name.valid"
+         class="alert alert-danger">
+      Le nom de la marque est requis
+    </div>
+  </div>
+  <button type="submit" class="btn btn-success"  [disabled]="!MarqueMotoForm.form.valid">
+    <i class="fa fa-plus mr-2"></i>Ajouter la marque de la moto
+  </button>
+</form>

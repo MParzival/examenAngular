@@ -1,0 +1,47 @@
+<h1>Ajouter une voiture : </h1>
+<form #VoitureForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name"  name="name" required [(ngModel)]="voiture.name"
+           #name="ngModel">
+    <div [hidden]="name.valid"
+         class="alert alert-danger">
+      Le nom de la voiture est requis
+    </div>
+  </div>
+  <label for="marque">Marque</label>
+  <select class="form-control"  id="marque"
+          required
+          [(ngModel)]="voiture.marque" name="marque" #marque="ngModel">
+    <option *ngFor="let marque of marques" [value]="marque.name">{{marque.name}}</option>
+  </select>
+  <div [hidden]="marque.valid"
+       class="alert alert-danger">
+    Le type de marque est requis
+  </div>
+
+  <div class="form-group">
+    <label for="nbPorte">Nombre de Portes</label>
+    <input type="number"  class="form-control" name="nbPorte" id="nbPorte"
+           [(ngModel)]="voiture.nbPortes">
+  </div>
+  <div class="form-group">
+    <label for="annee">Année</label>
+    <input type="number"  class="form-control" name="annee" id="annee"
+             [(ngModel)]="voiture.annee">
+  </div>
+  <div class="form-group">
+    <label for="cout">Prix</label>
+    <input type="number"  class="form-control" name="cout" id="cout"
+               [(ngModel)]="voiture.cout">
+  </div>
+  <div class="form-group">
+    <label for="nbKm">Nombre de Km</label>
+    <input type="number"  class="form-control" name="nbKm" id="nbKm"
+                 [(ngModel)]="voiture.nbKm">
+  </div>
+    <button type="submit" class="btn btn-success"  [disabled]="!VoitureForm.form.valid">
+      <i class="fa fa-plus mr-2"></i>Ajouter la voiture
+    </button>
+</form>
+

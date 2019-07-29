@@ -1,0 +1,42 @@
+<h1>Editer une voiture : </h1>
+<form #MotoForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name"  name="name" required [(ngModel)]="moto.name"
+           #name="ngModel">
+    <div [hidden]="name.valid"
+         class="alert alert-danger">
+      Le nom de la voiture est requis
+    </div>
+  </div>
+  <label for="marque">Marque</label>
+  <select class="form-control"  id="marque"
+          required
+          [(ngModel)]="moto.marque" name="marque" #marque="ngModel">
+    <option *ngFor="let marque of marques" [value]="marque.name">{{marque.name}}</option>
+  </select>
+  <div [hidden]="marque.valid"
+       class="alert alert-danger">
+    Le type de marque est requis
+  </div>
+
+  <div class="form-group">
+    <label for="annee">Année</label>
+    <input type="number"  class="form-control" name="annee" id="annee"
+           [(ngModel)]="moto.annee">
+  </div>
+  <div class="form-group">
+    <label for="cout">Prix</label>
+    <input type="number"  class="form-control" name="cout" id="cout"
+           [(ngModel)]="moto.cout">
+  </div>
+  <div class="form-group">
+    <label for="nbKm">Nombre de Km</label>
+    <input type="number"  class="form-control" name="nbKm" id="nbKm"
+           [(ngModel)]="moto.nbKm">
+  </div>
+  <button type="submit" class="btn btn-success"  [disabled]="!MotoForm.form.valid">
+    <i class="fa fa-plus mr-2"></i>Modifier la moto
+  </button>
+</form>
+

@@ -1,0 +1,34 @@
+<h1>Voici les détails de la {{ voiture.name }}  : </h1>
+<a routerLink="/voitures">
+  <button type="button" class="btn btn-primary">
+    <i class="fa fa-backward mr-2"></i> Retour à la liste des voitures
+  </button>
+</a>
+<a (click)="deleteVoiture(voiture.id)">
+  <button type="button" class="btn btn-danger">
+    <i class="fa fa-trash mr-2"></i> Supprimer {{voiture.name}}
+  </button>
+</a>
+<table class="table table-striped bg-success table-hover">
+  <thead class="thead-dark">
+  <tr>
+    <th>Nom</th>
+    <th>Marque</th>
+    <th>Nombre de porte</th>
+    <th>Année</th>
+    <th>prix</th>
+    <th>Nombre de Km</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th>{{ voiture.name}}</th>
+    <th>{{ voiture.marque }}</th>
+    <th>{{ voiture.nbPortes }}</th>
+    <th>{{ voiture.annee }}</th>
+    <th>{{ voiture.cout }}</th>
+    <th>{{ voiture.nbKm }}</th>
+
+  </tr>
+  </tbody>
+</table>
